@@ -85,7 +85,7 @@ img.giratinaUnfolded {
     margin-bottom: 2%;
     margin-left: 8%;
     display: block;
-    transform:rotate(10deg);
+    transform: rotate3d(-8, 12, 4, 20deg);
     transition: transform 2s;
 }
 

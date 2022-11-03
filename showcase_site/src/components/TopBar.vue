@@ -43,7 +43,7 @@ export default {
         text-decoration: none;
     }
 
-    li:after {
+    li a:after {
         background: none repeat scroll 0 0 transparent;
         bottom: 0;
         content: "";
@@ -69,7 +69,7 @@ export default {
         width: 100%;
     }
 
-    li:hover:after
+    li a:hover:after
     {
         width: 100%;
         left: 0;
