@@ -66,6 +66,8 @@ export default {
 </template>
 
 <style>
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@400;500&display=swap");
+
 p.preambule {
     color: white;
     width: 50%;

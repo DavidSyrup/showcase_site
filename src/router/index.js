@@ -1,4 +1,4 @@
-import { createRouter, createWebHistory } from 'vue-router'
+import { createRouter, createWebHashHistory } from 'vue-router'
 import Esports from '../components/esports.vue'
 import Mangas from '../components/mangas.vue'
 import Ptcg from '../components/ptcg.vue'
