@@ -4,7 +4,7 @@ import Mangas from '../components/mangas.vue'
 import Ptcg from '../components/ptcg.vue'
 
 const router = createRouter({
-    history: createWebHistory(),
+    history: createWebHashHistory(),
     routes: [
         {
             path: '/',
