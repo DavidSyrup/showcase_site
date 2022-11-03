@@ -1,6 +1,6 @@
 {
   "name": "showcase_site",
-  "homepage": "DavidSyrup.github.io/showcase_site",
+  "homepage": "DavidSyrup.github.io/showcase_site/",
   "version": "0.0.0",
   "scripts": {
     "dev": "vite",
