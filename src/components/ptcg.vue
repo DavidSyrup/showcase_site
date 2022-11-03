@@ -19,7 +19,7 @@ export default {
 <template>
     <div class="page">
         <video-background
-        src="../../public/assets/pokemonrules.mp4"
+        src="/pokemonrules.mp4"
         style="max-height: 400px; height: 100vh; width: 100%; opacity: 100%"
         >
         <div class="video-div">
@@ -67,14 +67,21 @@ export default {
 }
 
 img.giratinaFolded {
+    top: 0px;
+    left: 0px;
     float: left;
     box-shadow: 5px 5px 5px #fff;
     width: 15%; 
     margin-top: 2%;
     margin-bottom: 2%;
-    transition: transform 3s;
+    transition: transform 3s, top 1s ease, left 1s ease;
     margin-left: 8%;
     transform: translate(230%);
+}
+
+img.giratinaFolded:hover {
+    top: -5px;
+    left: 5px;
 }
 
 img.giratinaUnfolded {
