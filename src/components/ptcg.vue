@@ -19,7 +19,7 @@ export default {
 <template>
     <div class="page">
         <video-background
-        src="/pokemonrules.mp4"
+        src="../../public/assets/pokemonrules.mp4"
         style="max-height: 400px; height: 100vh; width: 100%; opacity: 100%"
         >
         <div class="video-div">
@@ -36,7 +36,7 @@ export default {
             <h2 style="color: white; text-align: center; padding-top: 5%">My standard format Deck</h2>
             <div style="padding-top: 2%">
                 <div>
-                <img @click="activateGiratina" :class="{ giratinaUnfolded: !giratinaActive, giratinaFolded: giratinaActive}" id="giratina" src="../assets/giratina-vstar.png"/>
+                <img @click="activateGiratina" :class="{ giratinaUnfolded: !giratinaActive, giratinaFolded: giratinaActive}" id="giratina" src="../../public/assets/giratina-vstar.png"/>
                 </div>
                 <Transition>
                     <div class="giratina-text" v-if="giratinaActive === false"  style="float: right;">
