@@ -28,7 +28,7 @@ export default {
 
             console.log(myInit)
 
-            fetch("https://api.myanimelist.net/v2/users/Nyluta/animelist", myInit)
+            fetch("https://api.myanimelist.net/v2/users/Nyluta/animelist/", myInit)
             .then(function(response) {
                 this.img_src = response.data[0].node.main_picture.medium;
                 this.img_src2 = response.data[1].node.main_picture.medium;
