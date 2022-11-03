@@ -1,5 +1,5 @@
 import { createApp } from 'vue'
-import {Plugin} from 'vue-responsive-video-background-player'
+import { Plugin } from 'vue-responsive-video-background-player'
 import App from './App.vue/'
 import router from './router/'
 
