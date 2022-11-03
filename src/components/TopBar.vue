@@ -35,6 +35,7 @@ export default {
 </template>
 
 <style lang="scss">
+
     li:hover {
         opacity: 1;
         background: none;
