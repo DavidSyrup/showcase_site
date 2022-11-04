@@ -1,15 +1,5 @@
 <script>
 export default {
-    data() {
-        return {
-            isRotate: false
-        }
-    },
-    methods: {
-        rotate_icon(event) {
-            this.isRotate = !this.isRotate;
-        }
-    }
 }
 </script>
 
@@ -19,13 +9,13 @@ export default {
     <nav>
         <div>
             <ul v-show="!mobile" class="navigation">
-                <li>
+                <li class="navbar-li">
                     <router-link class="link" :to="{name: 'Ptcg'}">PTCG</router-link>
                 </li>
-                <li class="others">
+                <li class="others navbar-li">
                     <router-link class="link" :to="{name: 'Mangas'}">Mangas</router-link>
                 </li>
-                <li class="others">
+                <li class="others navbar-li">
                     <router-link class="link" :to="{name: 'Esports'}">Esports</router-link>
                 </li>
             </ul>
@@ -36,13 +26,13 @@ export default {
 
 <style lang="scss">
 
-    li:hover {
+    li.navbar-li:hover {
         opacity: 1;
         background: none;
         text-decoration: none;
     }
 
-    li a:after {
+    li.navbar-li a:after {
         background: none repeat scroll 0 0 transparent;
         bottom: 0;
         content: "";
@@ -55,7 +45,7 @@ export default {
         width: 0;
     }
 
-    li a.router-link-active:after {
+    li.navbar-li a.router-link-active:after {
         background: none repeat scroll 0 0 transparent;
         bottom: 0;
         content: "";
@@ -68,7 +58,7 @@ export default {
         width: 100%;
     }
 
-    li a:hover:after
+    li.navbar-li a:hover:after
     {
         width: 100%;
         left: 0;
@@ -103,7 +93,7 @@ export default {
         text-decoration: none;
     }
 
-    li {
+    li.navbar-li {
         color: white;
         text-decoration: none;
         transition: opacity 1s;

@@ -19,7 +19,7 @@ export default {
 <template>
     <div class="page">
         <video-background
-        src="/pokemonrules.mp4"
+        src="pokemonrules.mp4"
         style="max-height: 400px; height: 100vh; width: 100%; opacity: 100%"
         >
         <div class="video-div">
@@ -30,7 +30,7 @@ export default {
             <h1 style="color: white; text-align: center; padding-top: 1%">Competitive Card Game</h1>
             <p class="explanation-text">Pokémon Trading Card Game has been a huge part of my 2021-2022 years, I've discovered this game in the bright
             summer of 2021, I've started by collecting cards as I've always been a fan of the Pokémon licence since I was a kid. One day I stumbled on players in my usual
-        gaming bar. I tried the game and fell in love with it. Since then I tried to compete in tournaments around Europe.</p>
+        gaming bar. I tried the game and fell in love with it and its community: I dare say I met one of my best friends while playing this game. Since then I tried to compete in tournaments around Europe.</p>
         </div>
         <div>
             <h2 style="color: white; text-align: center; padding-top: 5%">My standard format Deck</h2>
@@ -40,9 +40,12 @@ export default {
                 </div>
                 <Transition>
                     <div class="giratina-text" v-if="giratinaActive === false"  style="float: right;">
-                        <h3 style="color: white; padding-top: 1%; text-align: center; font-size: 30px;">Giratina VSTAR</h3>
-                        <p class="deck-text">This is the deck I am playng right now, I choose this one because of its particuliar nature, slow starting but strong-hitting.
-                            It also uses the Lost Zone Engine which I really like. I advise people to try this deck ! It has a lot of advantages and you can learn a lot playing it.
+                        <h3 style="color: white; padding-top: 1%; text-align: center; font-size: 30px;">Giratina VSTAR (LOR Format)</h3>
+                        <p class="deck-text">This is the deck I am playing right now, I choose this one because of its particuliar nature, slow starting but strong-hitting.
+                            It also uses the Lost Zone Engine which I really like. <br />
+                            It appeared in the Last Origin Expansion which released in early september this year, lots of playable cards were also released in this expansion like Kyurem VMAX or Thorton
+                         <br /><br />
+                         I advise people to try this deck ! It has a lot of advantages and you can learn a lot playing it.
                         </p>
                     </div>
                 </Transition>
