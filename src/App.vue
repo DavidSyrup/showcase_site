@@ -51,16 +51,6 @@ export default {
 <style lang="scss">
 @import url("https://fonts.googleapis.com/css2?family=Raleway:wght@400;500&display=swap");
 
-.fade-enter-from,
-.fade-leave-to {
-  opacity: 0;
-}
-
-.fade-enter-active,
-.fade-leave-active {
-  transition: opacity 1s ease-out;
-}
-
 .app {
   min-height: 100vh;
   position: relative;
