@@ -11,7 +11,8 @@ export default {
             fma_state: true,
             jojo_state: true,
             snk_state: true,
-            text_state: false
+            text_state: false,
+            title_condition: false
         }
     },
     methods: {
@@ -67,7 +68,13 @@ export default {
                 setTimeout(() => this.fma_state = true, 600);
                 setTimeout(() => this.jojo_state = true, 600);
             }
+        },
+        changeCondition() {
+            this.title_condition = true;
         }
+    },
+    mounted() {
+        this.changeCondition();
     },
     beforeMount() {
         //this.fetchMAL();
@@ -78,13 +85,18 @@ export default {
 <template>
     <div class="page">
         <div class="title">
-            <h1 class="mangas" id="title">Mangas and Animes</h1>
-            <p class="preambule">Mangas and Animes are a form of media I consume on a daily basis, if you know me, you know that I spend a lot
+            <Transition class="animate__animated animate__fadeInLeft animate__delay-1s">
+                <h1 v-if="title_condition" class="mangas" id="title">Mangas and Animes</h1> 
+            </Transition>
+            <Transition class="animate__animated animate__fadeInLeft animate__delay-2s">
+                <p v-if="title_condition" class="preambule">Mangas and Animes are a form of media I consume on a daily basis, if you know me, you know that I spend a lot
                 of time reading japanese comics : It can be anywhere, at a party, in the toilets or simply in my bed. I've been knees deep in this culture
                 since I was young, indeed my brother and my sister made me watch animes in our childhood. To this day, I still appreciate this part of the japanese pop-culture a lot worth.
-            </p>
+                </p>
+            </Transition>
         </div>
-        <video-background :src="video_src" style="max-height: 700px; height: 100vh; width: 100%; margin-top: 3%;">
+        <Transition class="animate__animated animate__fadeInUp animate__delay-3s">
+            <video-background v-if="title_condition" :src="video_src" style="max-height: 700px; height: 100vh; width: 100%; margin-top: 3%;">
             <div class="favorite-works" style="overflow: hidden;">
             <h1 class="mangas" id="favorite-title" style="padding-top: 2%">Here are some of my favorite works</h1>
             <TransitionGroup tag="ul" name="anime" class="anime_top" mode="out-in" appear="true">
@@ -92,21 +104,26 @@ export default {
                 <li v-if="jojo_state" class="jojo-li" style="width: 34%"><img @click="changeVideo('jojo')" :src="img2_src"/></li>
                 <li v-if="snk_state" class="snk-li"><img @click="changeVideo('snk')" :src="img3_src" /></li>
                 <li v-if="text_state" id="text-li" :style="{'margin-right': marginText}">
-                <h1 v-if="fma_state">FullMetal Alchemist:Brotherhood</h1>
-                <p v-if="fma_state">My favorite anime, it is not the most well animated story, but its quality in all its aspects is very good.<br />
-                     Lots of relevant themes in our modern era: philosophy, politics and religion. It still packs a lot of action. The plot in itself is very interesting, it doesn't use any particular way of narration but convey
-                     the plot point with clarty and ease, in itself the story is not boring : plot twists and build-ups throughout the whole story paying off with one of my favorite ending in anime history.
-                     <br /><br />Please consider watching it !</p>
-                <h1 v-if="jojo_state">Jojo's Bizarre Adventure Golden Wind</h1>
-                <p v-if="jojo_state">5th part of the classic Jojo's bizarre adventure. <br /> <br />Set in Italy, the story talks about gangsters and the italian mafia, in this crazy part we have maybe the most entertaining fights of the whole series.
-                Taking the concept of "STAND" even further beyond, the characters have guts and make all the fights exciting. Making you wonder if they will die against each opponent they encounter. <br /> 
-                The last part of this season is so exciting that it might make you faint ! <br /> <br />
-                Don't hesitate and come watch this masterpiece packed with all kind of emotions : melancholy, sadness, happiness, excitement. And as they say : Arrivederci
-             </p>
+                    <h1 v-if="fma_state">FullMetal Alchemist:Brotherhood</h1>
+                    <p v-if="fma_state">My favorite anime, it is not the most well animated story, but its quality in all its aspects is very good.<br />
+                            Lots of relevant themes in our modern era: philosophy, politics and religion. It still packs a lot of action. The plot in itself is very interesting, it doesn't use any particular way of narration but convey
+                            the plot point with clarty and ease, in itself the story is not boring : plot twists and build-ups throughout the whole story paying off with one of my favorite ending in anime history.
+                            <br /><br />Please consider watching it !</p>
+                    <h1 v-if="jojo_state">Jojo's Bizarre Adventure Golden Wind</h1>
+                    <p v-if="jojo_state">5th part of the classic Jojo's bizarre adventure. <br /> <br />Set in Italy, the story talks about gangsters and the italian mafia, in this crazy part we have maybe the most entertaining fights of the whole series.
+                        Taking the concept of "STAND" even further beyond, the characters have guts and make all the fights exciting. Making you wonder if they will die against each opponent they encounter. <br /> 
+                        The last part of this season is so exciting that it might make you faint ! <br /> <br />
+                        Don't hesitate and come watch this masterpiece packed with all kind of emotions : melancholy, sadness, happiness, excitement. And as they say : Arrivederci
+                    </p>
+                    <h1 v-if="snk_state">Shingeki no Kyojin</h1>
+                    <p v-if="snk_state">Shingeki no Kyojin or Attack on Titan, one of the best stories ever told. Set in a strange world filled with Titans, some kind of mindless giant humanoïd creature coming straight from horror movies, humans are trying to survive and exterminate all the titans. We follow the
+                        of Eren Jaeger a young Teenager who unfortunately lost his mom in a giant attack from the Colossal Titan. <br/> <br/> The way it's constructed, the way every plot twist makes every rewatch a new story.
+                    Every relevant characters are complex and plenty moral dilemmas are shown. I recommend everyone who wants to experience a great story (through its narrative ways) to watch this show</p>
                 </li>
             </TransitionGroup>
         </div>
         </video-background>
+        </Transition>
         <div class="last-watched">
             <h1 class="mangas" id="watched-title">My last episodes watched</h1>
             <p class="preambule" style="margin-bottom: 2%;">(WIP Problems with the MAL Api at the moment come back check later !)</p>

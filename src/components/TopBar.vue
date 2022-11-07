@@ -4,7 +4,7 @@ export default {
 </script>
 
 <template>
-<div>
+<div style="z-index: 7; width: 100%; background-color: black;">
     <header :class="{'scrolled-nav': scrollPosition}"></header>
     <nav>
         <div>

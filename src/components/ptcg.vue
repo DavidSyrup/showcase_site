@@ -2,7 +2,8 @@
 export default {
     data() {
         return {
-            giratinaActive: true
+            giratinaActive: true,
+            displayCondition: false
         }
     },
     methods: {
@@ -11,7 +12,13 @@ export default {
                 this.giratinaActive = false;
             else
                 this.giratinaActive = true;
+        },
+        activateElement() {
+            this.displayCondition = true;
         }
+    },
+    mounted: function() {
+        this.activateElement();
     }
 }
 </script>
@@ -26,19 +33,23 @@ export default {
             <h1 id="text-ptcg"> Competitive PTCG </h1>
         </div>
         </video-background>
-        <div>
+        <Transition enter-active-class="animate__animated animate__fadeInDown animate__delay-1s">
+            <div v-if="displayCondition">
             <h1 style="color: white; text-align: center; padding-top: 1%">Competitive Card Game</h1>
             <p class="explanation-text">Pokémon Trading Card Game has been a huge part of my 2021-2022 years, I've discovered this game in the bright
             summer of 2021, I've started by collecting cards as I've always been a fan of the Pokémon licence since I was a kid. One day I stumbled on players in my usual
         gaming bar. I tried the game and fell in love with it and its community: I dare say I met one of my best friends while playing this game. Since then I tried to compete in tournaments around Europe.</p>
-        </div>
+            </div>
+        </Transition>
         <div>
-            <h2 style="color: white; text-align: center; padding-top: 5%">My standard format Deck</h2>
+            <Transition enter-active-class="animate__animated animate__fadeInDown animate__delay-2s">
+                <h2 v-if="displayCondition" style="color: white; text-align: center; padding-top: 5%">My standard format Deck</h2>
+            </Transition>
             <div style="padding-top: 2%">
                 <div>
-                <img @click="activateGiratina" :class="{ giratinaUnfolded: !giratinaActive, giratinaFolded: giratinaActive}" id="giratina" src="../../public/assets/giratina-vstar.png"/>
+                    <img @click="activateGiratina" :class="{ giratinaUnfolded: !giratinaActive, giratinaFolded: giratinaActive}" id="giratina" src="../../public/assets/giratina-vstar.png"/>
                 </div>
-                <Transition>
+                <Transition name="giratina">
                     <div class="giratina-text" v-if="giratinaActive === false"  style="float: right;">
                         <h3 style="color: white; padding-top: 1%; text-align: center; font-size: 30px;">Giratina VSTAR (LOR Format)</h3>
                         <p class="deck-text">This is the deck I am playing right now, I choose this one because of its particuliar nature, slow starting but strong-hitting.
@@ -56,16 +67,16 @@ export default {
 
 <style>
 
-.v-enter-active {
+.giratina-enter-active {
   transition: opacity 4s ease;
 }
 
-.v-leave-active {
+.giratina-leave-active {
     transition: opacity 1s ease;
 }
 
-.v-enter-from,
-.v-leave-to {
+.giratina-enter-from,
+.giratina-leave-to {
   opacity: 0;
 }
 

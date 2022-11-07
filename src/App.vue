@@ -3,7 +3,7 @@ import TopBar from "./components/TopBar.vue"
 export default {
   data() {
     return {
-      enterClass: "animate__animated animate__fadeInRight",
+      enterClass: "",
       leaveClass: "animate__animated animate__fadeOutLeft"
     }
   },
@@ -75,5 +75,9 @@ export default {
         box-sizing: border-box;
         font-family: "Raleway", sans-serif;
         font-weight: 400;
+}
+
+body{
+  overflow-x: hidden;
 }
 </style>
