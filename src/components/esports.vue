@@ -14,8 +14,6 @@ import { gsap, Power0 } from "gsap"
             transition_backgrounds () {
                 this.background_state = false;
             },
-            change_div_size () {
-            },
             div_arrive: function (el, done) {
                 gsap.to(el, {duration: 1.5, opacity: 1});
 
@@ -34,24 +32,38 @@ import { gsap, Power0 } from "gsap"
                 }, 3700);
             },
             h1_arrive: function (el, done) {
-                gsap.to(el, {x: 180, duration: 1.5, onComplete: done, opacity: 1 })
+                gsap.set(el, {y: 20});
+                gsap.to(el, {x: 35, duration: 1.5, onComplete: done, opacity: 1 })
             },
-            h2_arrive: function (el, done) {
-                gsap.to(el, {x: 220, duration: 1.5, onComplete: done, opacity: 1}).delay(1.5);
+            p_arrive: function (el, done) {
+                gsap.set(el, {y: 2000})
+                gsap.to(el, {y: 20, duration: 1.5, onComplete: done, opacity: 1}).delay(1.5);
             },
             firstcase_arrive: function (el, done) {
-                gsap.set(el, {y: 0, opacity: 0});
+                gsap.set(el, {x: 50, y: 0, opacity: 0});
                 gsap.to(el, {y: 20, opacity: 1, duration: 1, onComplete: done}).delay(3);
-            },
+            },  
             secondcase_arrive: function(el, done) {
                 gsap.set(el, {x: 300 , y: 20, opacity: 0});
-                gsap.to(el, {x: -100 , duration: 1, opacity: 1}).delay(4);
+                gsap.to(el, {x: -50 , duration: 1, opacity: 1}).delay(4);
             },
             bar_arrive: function(el, done) {
                 gsap.set(el, {x: "-750", y: 20});
                 var tl = gsap.timeline({repeat: -1}).delay(6);
                 tl.set (el, {x: "-750", opacity: 1});
-                tl.to(el, {x: 2000, duration: 12});
+                tl.to(el, {x: 2000, duration: 10});
+            },
+            case3_arrive: function(el, done) {
+                gsap.set(el, {x: "-750", y: 40});
+                gsap.to(el, {x: 100, duration: 1, opacity: 1, onComplete: done}).delay(5);
+            },
+            case4_arrive: function(el, done) {
+                gsap.set(el, {x: 2000, y: 40});
+                gsap.to(el, {x: -10, duration: 1, opacity: 1, onComplete: done}).delay(6);
+            },
+            case5_arrive: function(el, done) {
+                gsap.set(el, {x: 2000, y: 40});
+                gsap.to(el, {x: 100, duration: 1, opacity: 1, onComplete: done}).delay(7);
             },
             make_pulse_logo: function() {
                 gsap.to('.pulse_logo', {scale: 1.01, repeat: "-1", yoyo: true, ease: Power0.easeNone})
@@ -101,14 +113,15 @@ import { gsap, Power0 } from "gsap"
         <Transition @leave="remove_drx">
             <img v-if="background_state" id="drx_logo" src="../../public/assets/whitedrx.png" />
         </Transition>
-        <Transition @before-enter="change_div_size" @enter="div_arrive">
+        <Transition @enter="div_arrive">
             <div v-if="second_state" class="underlayer">
                 <div class="drx-title">
                     <Transition @enter="h1_arrive">
-                        <h1 v-if="drx_state" class="h1_drx">DRX</h1>
+                        <h1 v-if="drx_state" class="h1_drx">DRX WINS</h1>
                     </Transition>
-                    <Transition @enter="h2_arrive">
-                        <h2 v-if="drx_state" class="h2_drx">WINS</h2>
+                    <Transition @enter="p_arrive">
+                        <p v-if="drx_state" style="text-align: center; opacity: 0;">DRX aka DragonX won the Worlds championship 2022 of League of Legends !<br />
+                    Maybe the biggest cinderella story of the competitive history of this game, the finals was such an emotional rollercoaster </p>
                     </Transition>
                 </div>
                 <div class="first-case">
@@ -116,12 +129,23 @@ import { gsap, Power0 } from "gsap"
                         <img class="first_case_class" v-if="firstcase_state" src="../../public/assets/drx2ndcase.png" />
                     </Transition>
                     <Transition @enter="secondcase_arrive">
-                        <img class="first_case_class" v-if="firstcase_state" src="../../public/assets/drx1stcase.png" />
+                        <img class="first_case_class" v-if="firstcase_state" src="../../public/assets/case1.png" />
                     </Transition>
                 </div>
                 <div class="transition_bar_div">
                     <Transition @enter="bar_arrive">
                         <img v-if="firstcase_state" class="bar_class first_case_class" src="../../public/assets/drxbar.png" />
+                    </Transition>
+                </div>
+                <div class="bottom_case" style="width: 100%">
+                    <Transition @enter="case3_arrive">
+                        <img v-if="firstcase_state" class="first_case_class" src="../../public/assets/case3.png"/>
+                    </Transition>
+                    <Transition @enter="case4_arrive">
+                        <img v-if="firstcase_state" class="first_case_class" src="../../public/assets/case4.png"/>
+                    </Transition>
+                    <Transition @enter="case5_arrive">
+                        <img v-if="firstcase_state" class="first_case_class" src="../../public/assets/case5.png">
                     </Transition>
                 </div>
             </div>
@@ -144,13 +168,13 @@ import { gsap, Power0 } from "gsap"
     }
 
     .drx-title {
-        width: 33%;
+        width: 30%;
         float:left;
     }
 
     .first-case {
         margin-top: 2%;
-        width: 67%;
+        width: 70%;
         float: left;
     }
 
