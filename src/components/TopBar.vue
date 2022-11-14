@@ -7,7 +7,7 @@ export default {
 <div style="z-index: 7; width: 100%; background-color: black;">
     <header :class="{'scrolled-nav': scrollPosition}"></header>
     <nav>
-        <div>
+        <div style="width: 100%">
             <ul v-show="!mobile" class="navigation">
                 <li class="navbar-li">
                     <router-link class="link" :to="{name: 'Ptcg'}">PTCG</router-link>
@@ -100,10 +100,8 @@ export default {
         opacity: 0.7;
         text-transform: uppercase;
         padding: 16px;
-    }
-
-    li.others {
-        margin-left: 256px;
+        width: 33%;
+        text-align: center;
     }
 
     .link {

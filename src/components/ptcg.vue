@@ -26,8 +26,9 @@ export default {
 <template>
     <div class="page">
         <video-background
+        class="video-bg"
         src="pokemonrules.mp4"
-        style="max-height: 400px; height: 100vh; width: 100%; opacity: 100%"
+        style="max-height: 400px; height: 100vh; width: 100%; opacity: 100%" autoplay="false"
         >
         <div class="video-div">
             <h1 id="text-ptcg"> Competitive PTCG </h1>
@@ -35,7 +36,7 @@ export default {
         </video-background>
         <Transition enter-active-class="animate__animated animate__fadeInDown animate__delay-1s">
             <div v-if="displayCondition">
-            <h1 style="color: white; text-align: center; padding-top: 1%">Competitive Card Game</h1>
+            <h1 class="firsth1" style="color: white; text-align: center; padding-top: 1%">Competitive Card Game</h1>
             <p class="explanation-text">Pokémon Trading Card Game has been a huge part of my 2021-2022 years, I've discovered this game in the bright
             summer of 2021, I've started by collecting cards as I've always been a fan of the Pokémon licence since I was a kid. One day I stumbled on players in my usual
         gaming bar. I tried the game and fell in love with it and its community: I dare say I met one of my best friends while playing this game. Since then I tried to compete in tournaments around Europe.</p>
@@ -43,15 +44,15 @@ export default {
         </Transition>
         <div>
             <Transition enter-active-class="animate__animated animate__fadeInDown animate__delay-2s">
-                <h2 v-if="displayCondition" style="color: white; text-align: center; padding-top: 5%">My standard format Deck</h2>
+                <h2 class="firsth2" v-if="displayCondition" style="color: white; text-align: center; padding-top: 5%;">My standard format Deck</h2>
             </Transition>
             <div style="padding-top: 2%">
                 <div>
                     <img @click="activateGiratina" :class="{ giratinaUnfolded: !giratinaActive, giratinaFolded: giratinaActive}" id="giratina" src="../../public/assets/giratina-vstar.png"/>
                 </div>
                 <Transition name="giratina">
-                    <div class="giratina-text" v-if="giratinaActive === false"  style="float: right;">
-                        <h3 style="color: white; padding-top: 1%; text-align: center; font-size: 30px;">Giratina VSTAR (LOR Format)</h3>
+                    <div class="giratina-text" v-if="giratinaActive === false">
+                        <h3 class="firsth3" style="color: white; padding-top: 1%; text-align: center; font-size: 30px;">Giratina VSTAR (LOR Format)</h3>
                         <p class="deck-text">This is the deck I am playing right now, I choose this one because of its particuliar nature, slow starting but strong-hitting.
                             It also uses the Lost Zone Engine which I really like. <br />
                             It appeared in the Last Origin Expansion which released in early september this year, lots of playable cards were also released in this expansion like Kyurem VMAX or Thorton
@@ -112,11 +113,22 @@ img.giratinaUnfolded {
 
 #text-ptcg {
     font-weight: 600;
-    font-size: 80px; 
+    font-size: 5vw;
     color: white; 
     opacity: 100%;
     text-align: center;
     text-shadow: 0 0 20px #000000;
+}
+
+@media (max-width: 1700px) {
+    #text-ptcg {
+        font-weight: 600;
+        color: white; 
+        opacity: 100%;
+        text-align: center;
+        text-shadow: 0 0 20px #000000;
+        font-size: 10vw;   
+    }
 }
 
 .video-div {
@@ -133,6 +145,7 @@ p.explanation-text{
 }
 
 .giratina-text {
+    float: right;
     width: 60%;
     background-color: #080808;
     margin-right: 5%;
@@ -148,6 +161,76 @@ p.deck-text {
     text-align: center; 
     padding-top: 1%; 
     font-size: 18px;
+}
+
+@media (max-width: 1403px) {
+
+    .video-bg {
+        max-height: 30vh !important;
+    }
+
+    .firsth1{
+        font-size: 7vw;
+    }
+
+    .firsth2{
+        font-size: 5vw;
+    }
+
+    .firsth3{
+        font-size: 2.5vw !important;
+    }
+
+    p.explanation-text{
+    color: white; 
+    text-align: center; 
+    padding-top: 1%; 
+    width: 95%; 
+    margin: auto;
+    font-size: 4vw;
+    }
+
+    img.giratinaFolded {
+    top: 0px;
+    left: 0px;
+    box-shadow: 5px 5px 5px #fff;
+    width: 50%; 
+    margin-top: 2%;
+    margin-bottom: 2%;
+    margin-left: 8%;
+    transform: translate(35%);
+}
+
+img.giratinaFolded:hover {
+    top: -5px;
+    left: 5px;
+}
+
+img.giratinaUnfolded {
+    box-shadow: 5px 5px 5px #fff;
+    width: 50%;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    margin-left: 8%;
+    transform: translate(35%);
+}
+
+p.deck-text {
+    width: 100%;
+    margin: auto;
+    color: white; 
+    text-align: center; 
+    padding-top: 1%; 
+    font-size: 4vw;
+}
+
+.giratina-text {
+    width: 90%;
+    background-color: #080808;
+    border-radius: 10px;
+    padding-bottom: 1%;
+    margin-top: 2%;
+}
 }
 
 

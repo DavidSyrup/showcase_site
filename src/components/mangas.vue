@@ -96,7 +96,7 @@ export default {
             </Transition>
         </div>
         <Transition class="animate__animated animate__fadeInUp animate__delay-3s">
-            <video-background v-if="title_condition" :src="video_src" style="max-height: 700px; height: 100vh; width: 100%; margin-top: 3%;">
+            <video-background class="manga-bg" v-if="title_condition" :src="video_src" style="max-height: 700px; height: 100vh; width: 100%; margin-top: 3%;">
             <div class="favorite-works" style="overflow: hidden;">
             <h1 class="mangas" id="favorite-title" style="padding-top: 2%">Here are some of my favorite works</h1>
             <TransitionGroup tag="ul" name="anime" class="anime_top" mode="out-in" appear="true">
@@ -131,7 +131,7 @@ export default {
     </div>
 </template>
 
-<style>
+<style lang="scss">
 @import url("https://fonts.googleapis.com/css2?family=Raleway:wght@400;500&display=swap");
 
 .anime-move,
@@ -219,8 +219,50 @@ p.preambule {
     font-size: 16px;
 }
 
+@media (max-width: 1403px) {
+    p.preambule {
+        color: white;
+    width: 90%;
+    margin: auto;
+    text-align: center;
+    padding-top: 2%;
+    font-size: 2.25vh;
+    }
+
+    ul.anime_top li img {
+    transition: top 1s ease, left 1s ease;
+    top: 0px;
+    left: 0px;
+    margin: auto;
+    height: 200px;
+    border: 1px solid #000000;
+}
+    ul.anime_top li {
+    width: 100%;
+    text-align: center;
+    padding-top: 2%;
+    }
+
+    .jojo-li {
+        width: 100% !important; 
+    }
+
+    #text-li {
+        width: 100% !important;
+        font-size: 2.5vw;
+    }
+
+    .manga-bg {
+        max-height: 1000px !important;
+    }
+
+    #text-li h1 {
+        font-size: 4vw;
+    }
+}
+
 h1#title {
-    font-size: 48px;
+    font-size: 5vh;
 }
 
 h1.mangas {
